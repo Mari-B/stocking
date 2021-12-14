@@ -1,7 +1,27 @@
-<p>
-  <strong>Ticker:</strong>
-  <%= @stock.ticker %>
-</p>
+<% @api = StockQuote::Stock.new(api_key: 'pk_0d778dd3116c4a7c855b0910b4bf5d50') %>
 
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Back', stocks_path %>
+<div class="col-md-6 offset-md-3">
+  <div class="jumbotron">
+    <% @ticker = StockQuote::Stock.quote(@stock.ticker) %>
+      <% if !@ticker %>
+        The ticker: <%= @stock.ticker %> does not exist!
+
+        <% else %>
+        <% @logo = StockQuote::Stock.logo(@stock.ticker)%>
+        <img src="<%= @logo.url %>"><br/><br/>
+        <% @ticker = StockQuote::Stock.quote(@stock.ticker) %>
+        <h2><%= @ticker.company_name %></h2><br />
+        <%= @ticker.symbol %><br />
+        Price: $<%= number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',') %><br />
+        Previous Close: $<%= number_with_precision(@ticker.previous_close, :precision => 2, :delimiter => ',') %><br />
+        Market Cap: $<%= number_with_precision(@ticker.market_cap, :precision => 2, :delimiter => ',') %><br />
+      <% end %>
+
+      <br />
+      <br />
+
+
+      <%= link_to 'Edit', edit_stock_path(@stock), class: 'btn btn-light' %> |
+      <%= link_to 'Back', stocks_path, class: 'btn btn-light' %>
+  </div>
+</div>
