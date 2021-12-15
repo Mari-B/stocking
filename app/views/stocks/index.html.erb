@@ -21,7 +21,7 @@
               <td><%= @ticker.symbol %></td>
               <td>$<%= number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',') %></td>
               <td>$<%= number_with_precision(@ticker.market_cap, :precision => 2, :delimiter => ',') %></td>
-              <td><center><%= link_to 'Edit', edit_stock_path(stock) %> | <%= link_to 'Delete', stock, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+              <td><center><%= link_to 'Delete', stock, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
           </tr>
         <% rescue => exception  %>
           <tr>
@@ -39,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Stock', new_stock_path, class: 'btn btn-light' %>
+<%= link_to 'New Stock', new_stock_path, class: 'btn btn-dark' %>

@@ -1,5 +1,13 @@
-<h1>New Stock</h1>
+<div class="col-md-6 offset-md-3">
+  <div class="jumbotron">
 
-<%= render 'form', stock: @stock %>
+    <h1>New Stock</h1>
 
-<%= link_to 'Back', stocks_path %>
+    <%= render 'form', stock: @stock %>
+
+    <br />
+
+    <%= link_to 'Back', stocks_path, class: 'btn btn-light' %>
+
+  </div>
+</div>
