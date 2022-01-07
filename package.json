@@ -2,8 +2,7 @@
   "name": "stocking",
   "private": true,
   "engines": {
-    "node": "12.13.0",
-    "yarn": "1.22.17"
+    "node": "12.13.0"
   },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
