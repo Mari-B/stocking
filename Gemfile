@@ -15,6 +15,7 @@ gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'jquery-rails'
 gem 'stock_quote', '~> 3.0'
 gem 'devise', '~> 4.8'
+gem 'sqlite3', '~> 1.4'
 
 group :production do
   gem 'pg', '~> 1.2', '>= 1.2.3'
@@ -23,7 +24,6 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
